@@ -1,0 +1,163 @@
+.body {
+    font-family: sans-serif;
+}
+
+.categories-list {
+    background-color: #43484B;
+    border-radius: 5px;
+}
+.container-fluid{
+    max-width: 1170px;
+}
+
+.categories-list li {
+    background-color: #43484B;
+    color: white;
+    font-size: small;
+    /* font-family: 'Gilmer-Regular'; */
+}
+
+.list-group-item {
+    background-color: #43484B;
+    color: white;
+    font-size: 13px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.checked-category {
+    background-color: orange;
+
+}
+
+.list-group {
+    max-height: 300px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.filter-header {
+    font-weight: 700;
+    font-size: large;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.card-container {
+    width: 100%;
+    display: flex;
+    background-color: #43484B;
+    border-radius: 5px;
+    margin-top: 5px;
+    padding: 10px;
+}
+
+.phone-text {
+    font-size: 11px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: aliceblue;
+}
+
+.email-text {
+    font-size: 13px;
+    color: aliceblue;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.business-name {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.business-other {
+    color: white;
+
+}
+
+.business-section {
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.page-item {
+    background-color: #43484B;
+    color: white;
+
+}
+
+.page-link {
+    background-color: #43484B;
+    color: white;
+
+}
+
+.navigation-bottom {
+    margin-top: 10px;
+}
+
+.info-label {
+
+    color: white;
+    font-family: "Segoe UI', Tahoma, Geneva, Verdana, sans-serif";
+    width: 100%;
+
+}
+
+.info-key {
+    color: orange;
+    font-family: "Segoe UI', Tahoma, Geneva, Verdana, sans-serif";
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #292828;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: orange;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.category-search-bar-box {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #43474B;
+    margin-top: 10px;
+    padding: 15px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.category-search-bar {
+    width: 100%;
+    outline: none;
+    border: none;
+    height: 20px;
+    font-size: 13px;
+    background-color: #43474B;
+    border-bottom: 3px orange solid;
+    caret-color: orange;
+    color:white
+
+
+}
+
+.category-search-bar::placeholder {
+    color: orange;
+    font-weight: 700;
+
+}

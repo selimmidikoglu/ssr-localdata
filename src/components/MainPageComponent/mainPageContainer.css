@@ -1,0 +1,223 @@
+.top-bar {
+  height: 90px;
+  width: 100%;
+  background-color: #F1F1F1;
+  border-bottom: 1px solid #1C1C1C;
+
+}
+
+.info-container {
+  height: 100px;
+  width: 100%;
+  background-color: white;
+  border-bottom: 1px solid #1C1C1C;
+
+}
+
+.single-el {
+  border: 1px solid red;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  height: 40px;
+  margin: 0;
+  padding: 5px;
+}
+
+body {
+  /* font-family: 'Gilmer-Regular'; */
+
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.search-bar-cat{
+  width:100%;
+  border: none;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  border-bottom:1px solid #1C1C1C; 
+  
+}
+.category-li {
+  color: #1C1C1C;
+  font-size: 13px;
+  list-style: none;
+  padding-left: 10px;
+}
+
+.option-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  position: relative;
+  /*top: 5px;*/
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 13px;
+  width: 13px;
+  transition: all 0.15s ease-out 0s;
+  border-radius: 0rem;
+  /*background: #cbd1d8;*/
+  background-color: white;
+  border: 1px #1C1C1C solid;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 0rem;
+  outline: none;
+  position: relative;
+  z-index: 1000;
+  border-radius: 2.5px;
+}
+
+.option-input:hover {
+  background: #343d46;
+}
+
+.option-input:checked {
+  /* background: #FCBD17; */
+  background: #3466aa;
+  border: 0px black solid;
+}
+
+.option-input:checked::before {
+  height: 13px;
+  width: 13px;
+  position: absolute;
+  content: '✔';
+  display: inline-block;
+  font-size: 12.66667px;
+  text-align: center;
+  line-height: 15px;
+  border: 0px black solid;
+}
+
+.filters_container {
+  background-color: white;
+  border-right: 1px solid #808080;
+  height: 800px;
+
+
+}
+
+.filter-inner {
+  height: 300px;
+  margin: 10px;
+  border-radius: 5px;
+  background-color: white;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+
+  mask-image: radial-gradient(circle, white 100%, black 100%);
+  border: solid #82B7DC;
+  border-width: 2px 0px 2px 2px;
+}
+
+.filter-inner::-webkit-scrollbar {
+  background-color: #808080;
+  border: 1px solid #82B7DC;
+  width: 6px;
+}
+
+.filter-inner::-webkit-scrollbar-thumb {
+  background-color: #82B7DC;
+  border-radius: 2px;
+  width: 2px;
+  height: 60px;
+}
+
+.business-div {
+  
+  height: 100px;
+  margin: 10px;
+  background-color: white;
+  border: 5px solid #82B7DC;
+  border-width: 1px 1px 1px 3px;
+  padding: 5px;
+  -webkit-box-shadow: 3px 3px 5px 0px#808080;
+-moz-box-shadow:    3px 3px 5px 0px#808080;
+box-shadow:         3px 3px 5px 0px#808080;
+}
+/* .results-and-map{
+
+} */
+.count-results{
+  width: 100%;
+  height:200px;
+  background-color: #82B7DC;
+  border-radius: 10px;
+  margin: 10px;
+  position: absolute;
+}
+
+/* https://www.schemecolor.com/blue-white-grey-and-black.php */
+
+ul.ks-cboxtags {
+  list-style: none;
+  padding: 20px;
+}
+ul.ks-cboxtags li{
+display: inline;
+}
+ul.ks-cboxtags li label{
+  display: inline-block;
+  background-color: rgba(255, 255, 255, .9);
+  border: 2px solid rgba(139, 139, 139, .3);
+  color: #adadad;
+  border-radius: 25px;
+  white-space: nowrap;
+  margin: 3px 0px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: all .2s;
+}
+
+ul.ks-cboxtags li label {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+ul.ks-cboxtags li label::before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 12px;
+  padding: 2px 6px 2px 2px;
+  content: "\f067";
+  transition: transform .3s ease-in-out;
+}
+
+ul.ks-cboxtags li input[type="checkbox"]:checked + label::before {
+  content: "\f00c";
+  transform: rotate(-360deg);
+  transition: transform .3s ease-in-out;
+}
+
+ul.ks-cboxtags li input[type="checkbox"]:checked + label {
+  border: 2px solid #1bdbf8;
+  background-color: #12bbd4;
+  color: #fff;
+  transition: all .2s;
+}
+
+ul.ks-cboxtags li input[type="checkbox"] {
+display: absolute;
+}
+ul.ks-cboxtags li input[type="checkbox"] {
+position: absolute;
+opacity: 0;
+}
+ul.ks-cboxtags li input[type="checkbox"]:focus + label {
+border: 2px solid #e9a1ff;
+}
