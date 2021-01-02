@@ -231,7 +231,7 @@ export default function MainPageContainer1() {
                     {state.businesses.length != 0 &&
 
                         <div className="col-xs-6 col-md-5 col-sm-8 business-section">
-                            <h2 className="text-left filter-header">Businesses</h2>
+                            {/* <h2 className="text-left filter-header">Businesses</h2> */}
                             <div className="row">
                                 {state.businesses && state.businesses.slice((state.currentPage - 1) * 20, (state.currentPage * 20)).map(
                                     (bus) => (

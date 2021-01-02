@@ -223,9 +223,9 @@ export const SetPageNumber = page => async (dispatch) => {
 
 export const SetCityAndFetch = (filterObj, cityInserted) => async (dispatch) => {
     try {
-        // dispatch({
-        //     type: BUSINESSES_LOADING
-        // })
+        dispatch({
+            type: BUSINESSES_LOADING
+        })
         dispatch({
             type: SET_CITY,
             payload: cityInserted
