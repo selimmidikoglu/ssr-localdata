@@ -149,9 +149,9 @@ body {
     padding: 15px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    border-width: 2px 2px 0px 2px;
-    border-style: solid;
-    border-color: white;
+    /* border-width: 2px 2px 0px 2px; */
+    /* border-style: solid;
+    border-color: white; */
 }
 
 .category-search-bar {
