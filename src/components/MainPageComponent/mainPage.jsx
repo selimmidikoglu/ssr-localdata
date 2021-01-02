@@ -226,14 +226,7 @@ export default function MainPageContainer1() {
                                     )}
                                 </div>
                             </>}
-                        <div className="list-group categories-list">
-                            {state.zipCodes.map(
-                                (zipCode, i) => (
-                                    <div id={i} className={zipCode == state.insertedZipcode ? "list-group-item checked-category" : "list-group-item"}
-                                        onClick={() => setZipcodeAndFetch(zipCode)}>{zipCode}</div>
-                                )
-                            )}
-                        </div>
+                        
                     </div>
                     {state.businesses.length != 0 &&
 
