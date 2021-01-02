@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react'
-import './navigation.css'
+import './navigationOther.css'
 import { useSelector, useDispatch } from 'react-redux';
 import { RootStore } from '../../redux/store';
 import { GrSearch } from "react-icons/gr";
+
 import {
     SetNameAndFetch
 } from '../../redux/actions/businessActions'
@@ -18,21 +19,42 @@ export default function Navigation() {
     }
     return (
         <nav>
-            {/* <ul>
-            <li className="logo">CodingNepal</li>
-            <li className="btn"></li>
-            <div className="items">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
+            <div className="container main-nav">
+                <div className="row main-nav">
+                    <div className="col-3 logo-container">
+                    {/* <img style={{width:'100px',height:'100px'}} src={logo} alt="Logo" /> */}
+                    </div>
+                    <div className="col-5 search-box-container">
+                        <input class="search-bar-name"  placeholder="Search" 
+                        onChange={(event) => setNameGetData(event.target.value)} />
+                    </div>
+                    <div className="col-4 navigation-buttons-container">
+                        <div className="items">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Services</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <li className="search-icon">
-                    <input type="search" placeholder="Search"/>
-                    
-                    </li>
-            </ul> */}
         </nav>
+        // <nav>
+        //     <ul>
+        //     <li className="logo">CodingNepal</li>
+        //     <li className="btn"></li>
+        //     <div className="items">
+        //     <li><a href="#">Home</a></li>
+        //     <li><a href="#">About</a></li>
+        //     <li><a href="#">Services</a></li>
+        //     <li><a href="#">Contact</a></li>
+        //     </div>
+        //     <li className="search-icon">
+        //             <input type="search" placeholder="Search"/>
+                    
+        //             </li>
+        //     </ul> 
+        // </nav>
     
           
     )

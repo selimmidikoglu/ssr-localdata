@@ -1,10 +1,15 @@
-.body {
+body {
     font-family: sans-serif;
+    background: rgb(255,165,0);
+background: linear-gradient(90deg, rgba(255,165,0,1) 0%, rgba(67,75,75,1) 20%, rgba(255,165,0,1) 40%, rgba(246,246,246,1) 50%, rgba(255,165,0,1) 60%, rgba(67,75,75,1) 80%, rgba(255,165,0,1) 100%);
+   opacity: 0.8; 
 }
+
 
 .categories-list {
     background-color: #43484B;
     border-radius: 5px;
+    border: 2px solid white;
 }
 .container-fluid{
     max-width: 1170px;
@@ -22,6 +27,7 @@
     color: white;
     font-size: 13px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: .25rem 1rem;
 }
 
 .checked-category {
@@ -140,6 +146,9 @@
     padding: 15px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
+    border-width: 2px 2px 0px 2px;
+    border-style: solid;
+    border-color: white;
 }
 
 .category-search-bar {

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import './mainPage.css'
 
 import { useSelector, useDispatch } from 'react-redux';
@@ -13,7 +13,7 @@ import { HiOutlineMail } from "react-icons/hi";
 import { IoLogoFacebook, IoLogoTwitter } from "react-icons/io";
 import { MdLocationCity } from "react-icons/md";
 import { CgWebsite } from "react-icons/cg";
-// import Navigation from '../NavigationContainer/navigation';
+import Navigation from '../NavigationContainer/navigation';
 //import { MyMapComponent } from '../GoogleMapComponent/googleMapComponent2'
 const mainURL = "http://localhost:6006/"
 function capitalizeFirstLetter(word) {
@@ -31,7 +31,40 @@ export default function MainPageContainer1() {
         dispatch(GetCategoriesAndStates())
     }, [])
     const state = useSelector((state) => state.businessReducer)
-
+    const [matchedStates, matchState] = useState([])
+    const [searchedCities, searchCity] = useState([])
+    const searchState = (key) => {
+        let x = []
+        if (key.length != 0) {
+            state.categoriesStates.states.forEach(el => {
+                if (el.state.toLowerCase().startsWith(key)) {
+                    x.push(el)
+                }
+                
+            });
+            matchState(precState =>  x)
+            console.log(x)
+        }
+        else {
+            matchState(precState =>  [])
+        }
+    }
+    const setCityAndSearch = (key) => {
+        let x = []
+        if (key.length != 0) {
+            state.matchedCities.forEach(el => {
+                if (el.toLowerCase().startsWith(key)) {
+                    x.push(el)
+                }
+                
+            });
+            searchCity(precState =>  x)
+            console.log(x)
+        }
+        else {
+            matchState(precState =>  [])
+        }
+    }
     const selectCategoryAndGetData = (event, sic_code) => {
         console.log(event, sic_code)
         const sic_code_to_send = state.categoryInserted !== sic_code ? sic_code : 0
@@ -101,10 +134,7 @@ export default function MainPageContainer1() {
     if (!state.categoriesStates) {
         return <Indicator />
     }
-    console.log("----")
-    console.log(state)
-    console.log(state.currentPage == Math.floor(state.businesses.length / 20))
-    console.log(state.currentPage, Math.floor(state.businesses.length / 20))
+    console.log("yapışan stateler", matchedStates)
     const pages = []
 
     for (let i = 0; i < state.businesses.length / 20; i++) {
@@ -115,7 +145,7 @@ export default function MainPageContainer1() {
         <>
             {state.businessLoading ? <Indicator /> : null}
             <div className="container-fluid">
-                {/* <Navigation /> */}
+                <Navigation />
 
 
                 <div className="row">
@@ -142,31 +172,45 @@ export default function MainPageContainer1() {
                         {/* <h2 className="text-left filter-header">States</h2> */}
                         <div className="category-search-bar-box">
                             <input className="category-search-bar" type="text" placeholder="Search States"
-                                onChange={(event) => setCategorySearchKeyAndFetch(event.target.value)}></input>
+                                onChange={(event) => searchState(event.target.value)}></input>
                         </div>
                         <div className="list-group categories-list">
-                            {state.categoriesStates?.states?.map(
+                            {matchedStates.length == 0 && state.categoriesStates?.states?.map(
+                                (state1, i) => (
+                                    <div id={i} className={state1.abbreviation == state.stateInserted ? "list-group-item checked-category" : "list-group-item"}
+                                        onClick={(e) => selectStateAndGetData(e, state1.abbreviation)}>{state1.state}</div>
+                                )
+                            )}
+                            {matchedStates.length != 0 && matchedStates.map(
                                 (state1, i) => (
                                     <div id={i} className={state1.abbreviation == state.stateInserted ? "list-group-item checked-category" : "list-group-item"}
                                         onClick={(e) => selectStateAndGetData(e, state1.abbreviation)}>{state1.state}</div>
                                 )
                             )}
                         </div>
-                        {state.matchedCities.length != 0 &&
+                        { state.matchedCities.length != 0 && 
                             <>
                                 <div className="category-search-bar-box">
                                     <input className="category-search-bar" type="text" placeholder="Search States"
-                                        onChange={(event) => setCategorySearchKeyAndFetch(event.target.value)}></input>
+                                        onChange={(event) => setCityAndSearch(event.target.value)}></input>
                                 </div>
                                 <div className="list-group categories-list">
-                                    {state.matchedCities.map(
+                                    {searchedCities.length == 0 && state.matchedCities.map(
+                                        (city, i) => (
+                                            <div id={i} className={city == state.insertedCity ? "list-group-item checked-category" : "list-group-item"}
+                                                onClick={() => setCityAndFetch(city)}>{city}</div>
+                                        )
+                                    )}
+                                     {searchedCities.length != 0 && searchedCities.map(
                                         (city, i) => (
                                             <div id={i} className={city == state.insertedCity ? "list-group-item checked-category" : "list-group-item"}
                                                 onClick={() => setCityAndFetch(city)}>{city}</div>
                                         )
                                     )}
                                 </div>
-                            </>}
+                            </>
+                        }
+                            
                         {state.zipCodes.length != 0 &&
                             <>
                                 <div className="category-search-bar-box">
@@ -200,9 +244,11 @@ export default function MainPageContainer1() {
                                     (bus) => (
                                         <div className="row card-container" onClick={
                                             () => {
-                                                console.log(mainURL + 'biz/' + bus.name.split(" ").join("-")+ "/" + bus.city.split(" ").join("-") + "/" + bus.state + "/" + bus.id)
-                                                var win = window.open(mainURL + 'biz/' + bus.name.split(" ").join("-")+ "/" + bus.city.split(" ").join("-") + "/" + bus.state + "/" + bus.id)
-                                                win.focus()
+                                                console.log(mainURL + 'biz/' + bus.name.split(" ").join("-") + "/" + bus.city.split(" ").join("-") + "/" + bus.state + "/" + bus.id)
+                                                let openURL =mainURL + 'biz/' + bus.name.split(" ").join("-") + "/" + bus.city.split(" ").join("-") + "/" + bus.state + "/" + bus.id
+                                                var win = window.open(openURL)
+                                                setTimeout(()=>win.focus(),400)
+                                                
                                             }
 
                                         }>

@@ -13,11 +13,14 @@ const config = {
   },
   module: {
     rules: [
+      
       {
         test: /\.js$|jsx/,
         use: {
           loader: "babel-loader",
           options: {
+            cacheDirectory: false,
+            plugins: ['@babel/plugin-transform-runtime'],
             presets: ["@babel/preset-env", "@babel/preset-react"]
           }
         },
@@ -26,7 +29,15 @@ const config = {
       {
         test: /\.css$/,
         use: ['style-loader','css-loader'],
-      }
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
+      },
     ]
   },
   resolve: {
