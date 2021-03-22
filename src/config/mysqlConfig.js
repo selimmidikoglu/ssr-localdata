@@ -1,10 +1,10 @@
 import mysql from 'mysql';
 
 var con = mysql.createConnection({
-  host: "139.99.68.189",
+  host: "",
   user: "velbase",
-  password: "3XXa8d5It3Sfe8JlCvRHuojlvXLfiIwp",
-  database: 'velbase'
+  password: "",
+  database: ''
 });
 
 export default con;
